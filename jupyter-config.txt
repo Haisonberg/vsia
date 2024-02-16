@@ -1,0 +1,16 @@
+#环境创建
+conda activate -n vsia python=3.9
+conda install conda-forge::pymol-open-source # pymol 2.5.0
+conda install conda-forge::notebook # jupyter notebook
+conda install conda-forge::openbabel # openbabel 3.1.1
+conda install conda-forge::plip # plip 2.3.0
+
+#启动notebook，端口8888
+jupyter notebook --no-browser --port=8888 
+
+# 端口转发
+ssh -L localhost:9999:localhost:8899 qihaixiang@124.17.105.5 -p 20014 -o ServerAliveInterval=60
+ssh -L 8899:localhost:8888 192.168.0.20 -o ServerAliveInterval=60
+
+#本地浏览器打开运行在计算节点上的jupyter book
+localhost:9999 
