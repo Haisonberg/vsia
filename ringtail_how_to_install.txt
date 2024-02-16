@@ -1,0 +1,19 @@
+#创建conda虚拟环境
+$ conda create -n ringtail python=3.10
+
+#安装libmamba, a fast dependency solver
+$ conda install -c conda-forge libmamba
+
+#更新conda以及libmamba
+$ CONDA_EXPERIMENTAL_SOLVER=classic conda install -n base conda=22.11.0
+$ CONDA_EXPERIMENTAL_SOLVER=classic conda install -n base conda-libmamba-solver=22.12.0
+
+#use libmamba as your default solver
+$ conda config --set solver libmamba
+
+#安装chemicalite, a dependency required by ringtail
+conda install -c conda-forge chemicalite
+
+#安装ringtail
+pip install ringtail
+
